@@ -1,0 +1,141 @@
+/* =========================================
+   CSS Notes
+   ========================================= */
+
+/* -------- Ways to apply CSS ----------
+   1) External stylesheet (recommended):
+      <link rel="stylesheet" href="style.css">
+
+   2) Internal (in <head> inside <style>...</style>)
+
+   3) Inline (style="...")  ← highest specificity (except !important)
+---------------------------------------- */
+
+
+/* -------- Selectors -------------------
+   div      → selects by type
+   .class   → selects elements by class
+   #id      → selects the element with that id
+   *        → selects every element
+
+---------------------------------------- */
+
+
+/* -------- Sizing Units ----------------
+   %        → relative to the parent size
+   px       → pixel (device-independent CSS pixel)
+   cm/in    → physical units (rare on screens)
+
+   em       → relative to current element's font-size (1em = current font-size)
+   rem      → relative to root (html) font-size
+
+   vw       → 1% of viewport width
+   vh       → 1% of viewport height
+   vmin     → 1% of the smaller of vw/vh
+   vmax     → 1% of the larger of vw/vh
+
+   calc(<math>) → dynamic sizes, e.g. calc(100% - 2rem)
+---------------------------------------- */
+
+
+/* -------- Background ------------------
+   background-color: <color>;
+   background-image: url("..."); 
+   background-repeat: repeat | repeat-x | repeat-y | no-repeat;
+   background-attachment: scroll | fixed | local;
+   background-position: left center | 20px 10px | ...
+   background-size: auto | cover | contain | <length>;
+---------------------------------------- */
+
+
+/* -------- Spacing ---------------------
+   padding: <top> <right> <bottom> <left>;
+   margin:  <top> <right> <bottom> <left>;                  (negative values allowed for margin)
+---------------------------------------- */
+
+
+/* -------- Borders & Outline -----------
+   border-style: solid | dotted | dashed | double | none | ...
+   border-width: <size>;
+   border-color: <color>;
+   outline: <size> <style> <color>;                         (outside the element box)
+---------------------------------------- */
+
+
+/* -------- Display & Visibility --------
+   display: block | inline | inline-block | flex | grid | none | ...
+   visibility: visible | hidden | collapse;                 (hidden keeps layout space)
+   overflow: visible | hidden | scroll | auto;
+---------------------------------------- */
+
+
+/* -------- Min/Max Sizes ---------------
+   min-width / max-width / min-height / max-height
+   Tip: width: fit-content; may size to content
+---------------------------------------- */
+
+
+/* -------- Text & Typography -----------
+   text-shadow: <x> <y> <blur> <color>;
+   text-align: left | right | center | justify;
+   direction: ltr | rtl;
+   text-decoration: none | underline | overline | line-through | ...
+   text-transform: capitalize | uppercase | lowercase | none;
+   letter-spacing: <length>;
+   word-spacing: <length>;
+   text-indent: <length>;
+   line-height: <number|length>; (1.6 ≈ 160%)               (spacing between lines)
+   white-space: normal | nowrap | ...;                      (behavuor of the text in the end of the line)
+   text-overflow: clip | ellipsis;                          (needs overflow hidden + nowrap)
+---------------------------------------- */
+
+
+/* -------- Cursor ----------------------
+   cursor: pointer | grab | move | text | not-allowed | ...
+---------------------------------------- */
+
+
+/* -------- Float & Clear ---------------
+   float: left | right | none;                              (floats element; text wraps around)
+   clear: left | right | both | none;                       (prevents wrapping beside floats)
+---------------------------------------- */
+
+
+/* -------- Opacity & Position ----------
+   opacity: 0..1;
+   position: static | relative | absolute | fixed | sticky; (this sets the position behavuor)
+   (Use with left/right/top/bottom)
+   z-index: <integer>;                                      (works on positioned elements)
+---------------------------------------- */
+
+
+/* -------- Lists -----------------------
+   list-style-type: disc | decimal | none | ...;            (Bullet appearence)
+   list-style-position: outside | inside;                   (position of the bullets inside or outside ul|ol box)
+---------------------------------------- */
+
+
+/* -------- Table ----------------------
+   border-spaing: <x> <y>;                                 (space between each cell)
+   border-collapse: separate | collapse;                   (removes double borders between cells)
+*/
+
+
+/* -------- before & after -------------
+   a::after  {content: "";}                                (adds an element just after or before <a>)
+   a::before {content: "";}                                (it behave same as any normal element before or after the base element)
+*/
+
+
+/* -------- Boxs -----------------------
+   box-sizing: content-box | border-box;                   (caculate the positioning poroberties from the borders of the element or the whole the box model)
+   box-shadow: <x> <y> <blur> <spread> <color> <inset>;    (create a shadow for the element)
+*/
+
+
+/* -------- transition -----------------
+   transition-property: <,,,> ;                            (properties wanted to transition)
+   transition-duration: <time>;                            (transition time)
+   transition-delay: <time>;                               (adds delay before transition motion)
+   transition-timing-function: <ease|ease-in|ease-out>;    (make transition follows motion function)
+} */

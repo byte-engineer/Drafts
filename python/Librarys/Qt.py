@@ -8,7 +8,7 @@ os.system('cls')
 
 #|> Tips:
 #  * start with child elements then the parent.
-
+def function(): ...
 
 # ___________________________________________________________________
 # |# | Name        | Description                                    |
@@ -21,12 +21,12 @@ os.system('cls')
 
 
 # Import The modules.
-import PyQt5.QtWidgets
-import PyQt5.QtGui
-import PyQt5.QtCore
-from PyQt5 import QtWidgets, QtGui, QtCore, QtMultimedia
-import PyQt5.QtWebEngineWidgets               # If you want it you have to install it individually.
-from PyQt5.QtCore import Qt
+import PyQt6.QtWidgets
+import PyQt6.QtGui
+import PyQt6.QtCore
+from PyQt6 import QtWidgets, QtGui, QtCore, QtMultimedia
+import PyQt6.QtWebEngineWidgets               # If you want it you have to install it individually.
+from PyQt6.QtCore import Qt
 import sys                                    # We should import also this python built-In Module.
 
 
@@ -55,7 +55,7 @@ class Qwidgets(QtWidgets.QMainWindow):                               # We have t
         self.setWindowState(Qt.WindowMinimized)                      # Set Window state {WindowMinimized, WindowMaximized, WindowFullScreen} |> Use '|' to compine.
         self.setMouseTracking(True)                                  # Enable mouse tracking captured in 'mouseMoveEvent' method.
         self.setWindowFlags(Qt.WindowStaysOnTopHint)                 # Set Window Flages {WindowStaysOnTopHint, FramelessWindowHint}         |> Use '|' to compine.
-        self.menuBar()                                               # Adds A menu bar to the window. |More later.
+        self.menuBar()                                               # Adds A menu bar to the window. | More later.
         # self.close()                                               # If we want to close the window.
 
 
@@ -281,8 +281,8 @@ class Qwidgets(QtWidgets.QMainWindow):                               # We have t
 
 
     def QWebEngineView(self):
-        browser = PyQt5.QtWebEngineWidgets.QWebEngineView()          # Create a browser widget.
-        browser.setUrl(PyQt5.QtCore.QUrl('https://www.google.com'))  # spesify URL.
+        browser = PyQt6.QtWebEngineWidgets.QWebEngineView()          # Create a browser widget.
+        browser.setUrl(PyQt6.QtCore.QUrl('https://www.google.com'))  # spesify URL.
         browser.setHtml('Normal HTML')                               # Set HTML.
         browser.runJavaScript('document.body.style.backgroundColor = "lightblue";')  # Run JS code in to the current cuntent.
 
@@ -336,7 +336,7 @@ class Qwidgets(QtWidgets.QMainWindow):                               # We have t
         grid.addWidget(QtWidgets.QWidget('Added'), 1, 1)             # Row 1, Col 1.
         grid.addWidget(QtWidgets.QWidget('Span'), 2, 0, 1, 2)        # Spanning 2 columns. | addWidget(widget, row, column, rowspan, colspan)
         grid.removeWidget(QtWidgets)                                 # Remove a widget from the grid.
-
+    
         grid.setContentsMargins(1, 1, 1, 1)                          # Set a margin to all grid elements. | setContentsMargins(left, top, right, bottom)
 
         grid.setColumnStretch(1, 2)                                  # stretch a column | setColumnStretch(column, stretch)

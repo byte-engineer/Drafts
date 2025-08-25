@@ -1,4 +1,3 @@
-# Draft/MainDraft.py
 
 #############     #####         #####  #######################  ######          ######          ###########           #########        ######
 ###############    #####       #####   #######################  ######          ######       ##################       ##########       ######
@@ -908,6 +907,24 @@ print("Hi " * 3)                                                        # Rebeat
 print("Hi ", end= "!!")                                                 # End by defult = "\n"     |Result => "Hi !!"
 print("Hi", "my", "friend", sep= ", ")                                  # Seprator by defult = " " |Result => "Hi, my, friend"
 print("Force it", flush= True)                                          # To force the output to flushed it immediately.Try to do this commend if the function dosn't work.
+
+# There are some codes to change the colors or features of the text printed it is not python specific but it worth to metion.
+Black	= "\033[30m"
+Red	    = "\033[31m"
+Green	= "\033[32m"
+Yellow	= "\033[33m"
+Blue	= "\033[34m"
+Magenta	= "\033[35m"
+Cyan	= "\033[36m"
+White	= "\033[37m"
+Reset	= "\033[0m"
+
+# Effect	       Code
+Bold             = "\033[1m"
+Underline        = "\033[4m"
+BackgroundRed    = "\033[41m"
+BackgroundYellow = "\033[43m"
+
 
 #Map-------------------------------------------------------------------
 

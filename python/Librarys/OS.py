@@ -6,7 +6,7 @@ path = r"C:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\REQs"
 
 
 
-os.system("cls")                    # Commend In the termenal.
+os.system("cls")                    # Runs a commend In the termenal.
 
 os.listdir(path)                    # return a list contains all dirctories and files in the path. 
 os.mkdir(path+r"\new")              # create a new dirctory.

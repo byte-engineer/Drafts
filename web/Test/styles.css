@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #505050;
+    /* add thin border */
+    padding: 8px;
+    /* space inside cells */
+    text-align: left;
+    /* align text inside cells */
+}
+
+tr:nth-child(even) {
+    background-color: #da3333;
+    /* zebra striping */
+}

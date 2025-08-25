@@ -42,4 +42,5 @@ echo $not_dclared_var                            # Not error just assumed as emp
 # Embed variable on string                       # For this situation we need to use double qouts other wise it going to substitutez the litral name of the variable.
 echo "variable contant: $var"                    # Embedding variable on a string.
 
-
+# Not Tested.
+echo file{1..5}.txt                              # outputs: file1.txt file2.txt file3.txt file4.txt file5.txt
