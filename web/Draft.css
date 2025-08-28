@@ -139,3 +139,33 @@
    transition-delay: <time>;                               (adds delay before transition motion)
    transition-timing-function: <ease|ease-in|ease-out>;    (make transition follows motion function)
 } */
+
+
+/* -------- Flex box -------------------
+   display: <flex | inline-flex>
+   flex-direction:;
+   flex-wrap: <wrap | nowrap | wrape-reverse>;
+   flex-flow: <direction> <wrap>;
+   justify-content: <stretch | flex-start | center | flex-end | space-between | space-around | space-evenly>;
+   align-items: <stretch | flex-start | center | flex-end>;
+   align-content: <stretch | flex-start | center | flex-end | space-between | space-around | space-evenly>;
+   flex-graw: <integer>;
+   flex-shrenk: <integer>;
+   flex-basis: <size>;                                     (smart replacment of hieght and width properties)
+*/
+
+
+/* -------- Filters -------------------
+
+   filter: <grayscale | blue | invert | ... >;             (this property just works for images)
+   linear-gradient
+   caret-color: ;
+   pointer-event: <none>;
+*/
+
+
+/* -------- Grid layout ---------------
+   display: <grid | inline grid>;
+   grid-template-column: <size | auto | fr | rebeate()>;   (this detirmines the number of column in the layout)
+   
+*/

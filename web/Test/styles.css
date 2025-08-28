@@ -1,19 +1,19 @@
-table {
+.flex {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    justify-items: center;
+    height: 100%;
     width: 100%;
-    border-collapse: collapse;
 }
 
-th,
-td {
-    border: 1px solid #505050;
-    /* add thin border */
-    padding: 8px;
-    /* space inside cells */
-    text-align: left;
-    /* align text inside cells */
-}
-
-tr:nth-child(even) {
-    background-color: #da3333;
-    /* zebra striping */
+.flex div {
+    background: red;
+    color: greenyellow;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    padding: 5%;
+    margin: 5%;
 }
