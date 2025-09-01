@@ -2,31 +2,56 @@
    CSS Notes
    ========================================= */
 
-/* -------- Ways to apply CSS ----------
-   1) External stylesheet (recommended):
+/* -------- Ways to apply CSS -----------
+   1. External stylesheet (recommended):
       <link rel="stylesheet" href="style.css">
 
-   2) Internal (in <head> inside <style>...</style>)
+   2. Internal (in <head> inside <style>...</style>)
 
-   3) Inline (style="...")  ← highest specificity (except !important)
----------------------------------------- */
+   3. Inline (style="...")  ← highest specificity.         (except !important)
+----------------------------------------- */
 
 
 /* -------- Selectors -------------------
-   div      → selects by type
-   .class   → selects elements by class
-   #id      → selects the element with that id
-   *        → selects every element
+   *                      ==>  selects every element.                        |
+   element                ==>  selects by element type.                      | div
+   .class                 ==>  selects elements by class.                    | .class-name
+   #id                    ==>  selects the element by id.                    | #id-name
+   selector selector      ==>  selects classes that inside the parent.       | .card div
+   selector > selector    ==>  selects direct child.                         | div > p
+   selector + selector    ==>  selects any pragraph after div next element.  | div + p
+   selector ~ selector    ==>  selects pragraphs after div and same level.   | p ~ div
+   [attribute]            ==>  selects any element has title attribute.      | [title]
+   [attribute=value]      ==>  selects any title attribute set to heading.   | [title="headding"]
+   [attribute~=value]     ==>  contains a word.                              | [title="inupt"]
+   [attribute*=value]     ==>  contains a string.                            | [title="head"]
+   [attribute^=value]     ==>  starts with string.                           | [title="head"]
+   element[attribute]     ==>  selects divs that has title attribute.        | div[title]
 
+   :root                  ==>  refarese to the html tag. 
+   :checked               ==>  any checked elements.
+   :empty                 ==>  empty element.
+   :required              ==>  required element. 
+   :placeholder-shown     ==>  style just the place holder.
+   :...                   ==>  and more :) 
+
+   :first-child           ==>  selects first child.
+   :last-child            ==>  selects last child.
+   :first-of-type
+   :last-of-type
+   :only-child
+   :only-of-type
+   :not(selector)
+   :nth-child(even | odd) ==> https://nthmaster.ru/
 ---------------------------------------- */
 
 
 /* -------- Sizing Units ----------------
-   %        → relative to the parent size
-   px       → pixel (device-independent CSS pixel)
-   cm/in    → physical units (rare on screens)
+   %        → relative to the parent size.                 
+   px       → pixel                                        (device-independent CSS pixel.)
+   cm/in    → physical units.
 
-   em       → relative to current element's font-size (1em = current font-size)
+   em       → relative to current element's font-size      (1em = current font-size)
    rem      → relative to root (html) font-size
 
    vw       → 1% of viewport width
@@ -50,7 +75,7 @@
 
 /* -------- Spacing ---------------------
    padding: <top> <right> <bottom> <left>;
-   margin:  <top> <right> <bottom> <left>;                  (negative values allowed for margin)
+   margin:  <top> <right> <bottom> <left>;                 (negative values allowed for margin)
 ---------------------------------------- */
 
 
@@ -58,13 +83,13 @@
    border-style: solid | dotted | dashed | double | none | ...
    border-width: <size>;
    border-color: <color>;
-   outline: <size> <style> <color>;                         (outside the element box)
+   outline: <size> <style> <color>;                        (outside the element box)
 ---------------------------------------- */
 
 
 /* -------- Display & Visibility --------
    display: block | inline | inline-block | flex | grid | none | ...
-   visibility: visible | hidden | collapse;                 (hidden keeps layout space)
+   visibility: visible | hidden | collapse;                (hidden keeps layout space)
    overflow: visible | hidden | scroll | auto;
 ---------------------------------------- */
 
@@ -84,9 +109,9 @@
    letter-spacing: <length>;
    word-spacing: <length>;
    text-indent: <length>;
-   line-height: <number|length>; (1.6 ≈ 160%)               (spacing between lines)
-   white-space: normal | nowrap | ...;                      (behavuor of the text in the end of the line)
-   text-overflow: clip | ellipsis;                          (needs overflow hidden + nowrap)
+   line-height: <number|length>; (1.6 ≈ 160%)              (spacing between lines)
+   white-space: normal | nowrap | ...;                     (behavuor of the text in the end of the line)
+   text-overflow: clip | ellipsis;                         (needs overflow hidden + nowrap)
 ---------------------------------------- */
 
 
@@ -96,8 +121,8 @@
 
 
 /* -------- Float & Clear ---------------
-   float: left | right | none;                              (floats element; text wraps around)
-   clear: left | right | both | none;                       (prevents wrapping beside floats)
+   float: left | right | none;                             (floats element; text wraps around)
+   clear: left | right | both | none;                      (prevents wrapping beside floats)
 ---------------------------------------- */
 
 
@@ -105,13 +130,13 @@
    opacity: 0..1;
    position: static | relative | absolute | fixed | sticky; (this sets the position behavuor)
    (Use with left/right/top/bottom)
-   z-index: <integer>;                                      (works on positioned elements)
+   z-index: <integer>;                                     (works on positioned elements)
 ---------------------------------------- */
 
 
 /* -------- Lists -----------------------
-   list-style-type: disc | decimal | none | ...;            (Bullet appearence)
-   list-style-position: outside | inside;                   (position of the bullets inside or outside ul|ol box)
+   list-style-type: disc | decimal | none | ...;           (Bullet appearence)
+   list-style-position: outside | inside;                  (position of the bullets inside or outside ul|ol box)
 ---------------------------------------- */
 
 
@@ -138,7 +163,7 @@
    transition-duration: <time>;                            (transition time)
    transition-delay: <time>;                               (adds delay before transition motion)
    transition-timing-function: <ease|ease-in|ease-out>;    (make transition follows motion function)
-} */
+*/
 
 
 /* -------- Flex box -------------------
@@ -166,6 +191,63 @@
 
 /* -------- Grid layout ---------------
    display: <grid | inline grid>;
-   grid-template-column: <size | auto | fr | rebeate()>;   (this detirmines the number of column in the layout)
-   
+   grid-template-columns: <size | auto | fr | rebeate()>;  (this detirmines the number of column in the layout)
+   grid-template-raws: <size | auto | fr | rebeate()>;     (same as columns but for rows)
+   row-gap: <size>;                                        (some gap between cells in x direction)
+   column-gap: <size>;                                     (in y direction)
+   grid-template-areas: "<name> <name> . <name>";          ()
+   grid-area: <name>;
+   grid-area: <int> / <int> / <int> / <int>;
+   grid-colomn: <start> / <end>;                           (adds span to the grid celles)
+   grid-colomn: span <integer>;                            (other syntax start/end not spicefied this method is safer)
+   grid-row: <integer offset> / span <integer>;
+*/
+
+
+/* -------- Teransform ----------------
+   transform: scale(<x>, <y>);                             (scales the whole element, negetive values to flip)
+   transform: rotate(<angle>);                             (angles | deg | rad | grad | turn,  negetives for counter clockwise rotation)
+   transform: translate(<x> <y>);                          
+   transform: skew(<x> <y>);
+   transform: matrix(scaleX, skewY, skewX, skewY, scaleY, translateY, translateX);
+   transform-orign: center center;
+*/
+
+
+/* -------- Animation ----------------- 
+   animation-name: <identifire>;
+   animation-duration: <time>;
+   animation-iteration-count: <infinite | integer>;
+   animation-timing-function: <timing-function>;
+   animation-direction: <normal | reverse | alternate>;
+   animation-delay: <time>;                                (we can use negetives)
+*/
+
+@keyframes animation-name {
+   from {
+      color: red;
+   }
+
+   50% {
+      color: green;
+   }
+
+   to {
+      color: red;
+   }
+}
+
+
+/* -------- Media Queries -------------
+
+|> Appling media queries
+* <link rel="stylesheet" href="css/print.css" media="<condition> e.g. print"/>
+* @media condition {<styles>}
+
+
+|> Avaliable Conditions:
+ - print                               ==> Activated when the page printed.
+ - max-width: <size>                   ==> Activated when the width less than <size>.
+ - min-width: <size>                   ==> Activated when the width greater than <size>.
+ - and                                 ==> Apply boolean operation to join more than condition.
 */

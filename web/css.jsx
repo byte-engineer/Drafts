@@ -91,6 +91,3 @@
 
 // list-style-type: <mode>;                                          // this property detirmaines the type of <ul> or <ol> tags bullets. Modes (disc, none, ...)
 // list-style-position: <outside, inside>;                           // detemaines if the bullets included on <ul> or <ol> tags or not.
-
-
-
