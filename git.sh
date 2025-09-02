@@ -17,8 +17,9 @@
 git init                                         # Initlize a new git repository.
 git status                                       # View the staged/unstaged/other info files or directories.  | What's happening?
 git add <file>                                   # Adds <file> to the staging area So git can track them.
-git reset head <file>                            # Remove <file> from staging area.
+git restore --staged <file>                      # Remove <file> from staging area.
 git commit -m "massage"                          # Update the local repository with staged files.
+git log                                          # Logs all commits and thier meta data.
 git branch                                       # View all branchs existed on the repository.
 git remote --verbose                             # View remote repositories attached to the locale repository.
 git push <remote-repo> <branch>                  # Update remote repository with commited changes.
@@ -60,4 +61,24 @@ git stash drop                                   # Deletes last stash.   | add s
 git stash clear                                  # Clear all stash stack.  Remove all stashs. 
 
 
- 
+
+## Undo-ing . . . . .
+#|> reset  --> Rewrites history. The commits after the reset point disappear from the branch.
+#|> revert --> Preserves history. Nothing is deleted; the timeline stays linear and intact.
+# >> MODES <<           :> works for reset and revert.
+#> --soft               -> keeps staged files.
+#> --hard               -> removes staged files.
+#> --mixed (default)    -> unstages staged files.
+git revert 
+git reset <commit-hash>                  # Moves the HEAD pointer to <commit-hash> and REMOVES commits after it.
+git revert <commit-hash>                 # Moves the HEAD pointer to <commit-hash> without removing commits after it.
+git push <origin> <branch> --force       # Needed force to update remote repository.
+
+
+## Tags . . . . .
+git tag                                  # List existing tags.
+git tag <versoin>                        # Create a tag linked to a commit.
+git tag -a <version> -m <massage>        # Create anotated tag contains a massage. 
+git tag -d <version>                     # Delete a tag.
+git push <origin> <tag-version>          # Pushing a tag.
+git push origin --delete <version>       # Delete tag from remote repository.
