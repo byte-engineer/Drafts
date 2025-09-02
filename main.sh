@@ -15,8 +15,6 @@ $?
 
 
 
-
-
 #: Regular Expression--------------------------------------
 #> Regular expreswsion used to define a pattren mostlly to search on it.
 #> `regex` for short are now becomes a main concept on the computer science.
