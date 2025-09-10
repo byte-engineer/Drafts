@@ -1,11 +1,7 @@
 // INFO----------------------------------------------------
-// C++ is a very powerful staticly typed compiled language.
-// You can do anything with it.
-
-// Advanced Info-------------------------------------------
-// Any thing starts with '#' is a preprocessed action.
-// preprocessed actions get evaluated before compiling.
-// We can not define a function inside a nother existing function.
+// - C++ is a very performent general-purpose programming language, staticly typed, compiled language , has C-like sytax.
+// - C++ reserves a set of 92 words (keywords) (as of C++23) for its own use.  // https://www.learncpp.com/cpp-tutorial/keywords-and-naming-identifiers/
+// - 
 
 /* Running the script--------------------------------------
  * - Download the compiler (g++ / clang++).
@@ -16,23 +12,27 @@
 
 // Compiler -----------------------------------------------
 // We have 3 main C/C++ compilers { gcc, MSVC, clang }
-// MSVC  --> cl.exe                | also in Visual Studio
-// gcc   --> g++.exe               | From GNU package
-// clang --> clang++.exe           | Modren Uses LLVM technology
-// For linking `ld` and `lld`
+// MSVC  --> cl                    | also in Visual Studio | this comes also with Visual Studio dev tools.
+// gcc   --> g++                   | From GNU package.
+// clang --> clang++               | Modren Uses LLVM technology.
+// For linking `ld` and `lld`      | lld used for LLVM based compilers like clang and rustc.
 
 // simple comend for compiling a file.
-//|>> clang++ -o file.exe file.cpp
+//|>> clang++ -o <execName> file.cpp
 
 // Compiler arguments:
 // Almost all of this arguments are works with all the compiler.
-//| -o <file>       >> For specify the output file without it output will be named a.exe
+//| -o <execName>   >> For specify the output executable without it output will be named a.exe
 //| -v              >> Show all the setting of the compiler.
-//| -w              >> Remove all wornings.
 //|
 //| -c              >> To compile the files without linking. | -save-temps flag give it also.
 //| -E              >> To generate preprosecor file          | -save-temps flag give it also.
 //| -S              >> To generate assimbly file             | -save-temps flag give it also.
+//|
+//| Warnings:
+//| -w              >> Remove all wornings.
+//| -Wall           >> Show all warnings.
+//| -Werror         >> Deal with warning as errors.
 //|
 //| -std=<standard> >> Specify the C/C++ standard lib | -std=c++17  -std=c11
 //|
@@ -56,12 +56,24 @@
 //| -m32 -m64       >> Compile for 32-bit or 64-bit architecture.
 
 
+// Statements-----------------------------------------------
+// there is a few types of a statements in C++:
+// - Declaration statements
+// - Jump statements
+// - Expression statements
+// - Compound statements
+// - Selection statements (conditionals)
+// - Iteration statements (loops)
+// - Try blocks
+
 // Comments------------------------------------------------
 // Comments are removed BEFORE preprocessing and replaced with a single space.
 // this is in-line comment.
-/* this is multiple line comment*/
+/* this is multiple line comment */
 
-// Main header file---------------------------------------
+// Main header file----------------------------------------
+// Every C++ program must have a special function named main (all lower case letters).
+// The programe will start executing from main() sequencialy.
 // The main header in cpp that includes standard file is <iostream>.
 // To import the header file we use #include pre-proseccor keyword.
 // We will use learn about it's commends later.
@@ -79,37 +91,69 @@ int _main(void)
 // We don't have to return from a main function ( special case for main function ).
 
 // Variables --------------------------------------------------------
-// Variables are so important in any programming language.
-// Variables in C++ have an easy syntax (type name = value;)
-// The C++ is a staticly typed language.
-// We type first the type of our variable then the name of the variable.
-// We have many different types of variables. {int, double}
+// Variables are type of objects which are a some space in memory.
+// The C++ is a staticly typed language so we need to inculde the type of the varible in declerations.
+// We have many different types of variables. {int, double,...}
 // We cannot use same variable name for different variables.
 
 
 void Variables(void)
 {
     // Variable Declaration.
-    int var;                                                    // Declares an integer variable named 'age'
-    int cont = 25;                                              // Initializes 'age' with value 25
+    int var;                                                    // Declares an integer variable named 'age'.
+    int a, b, c;                                                // Declares multible variables at once.
+    double d, e = 3.2, f;                                       // Declare and assign a value to e.
 
-    char a, b, c;                                               // declaring 3 variables at once.
-    double d, e = 3.2, f;                                        // Declare and assign a value to e.
 
+    // Varaiable Assignment.
+    var = 10;                                                   // Assign 10 to var.
     a = b = c = 10;                                             // Assign 10 to all variables.
 
-    // Main Variables Types.                                                                           |_Size_____|_Range_________________
+
+    // Varaiable Initlization.
+    // Initlization is declaration and assignment at once.
+    // It turns out that the initlization in more complex than declaretions and assignments.
+    // So we have some ways and some are better than others.
+
+    // [TODO]:
+    // Aggregate initialization (see 13.8 -- Struct aggregate initialization).
+    // Copy-list-initialization (discussed below).
+    // Reference initialization (see 12.3 -- Lvalue references).
+    // Static-initialization, constant-initialization, and dynamic-initialization (see 7.8 -- Why (non-const) global variables are evil).
+
+    // default-initialization   | Not initlized. if the variable not global it will contains garbage value. 
+    // copy-initialization      | It may less efficient in complex types. This type of initlization comes from C. Note: this invokes implicit constructor.
+    // direct-initialization    | This is more efficient than copy initialization.                                Note: invokes explicit constructor. std::string s("hi");
+    // list-initialization      | C++11 and beyond. this type disallows narrowing conversions.
+    // value-initialization     | Safe initlization to zero. Use this when the object’s value is temporary and will be replaced.
+
+    // initialization:
+    int a;                                                      // default-initialization.     (No initializer)
+    int b = 5;                                                  // copy-initialization.        (Traditional)
+    int c ( 6 );                                                // direct-initialization.      (Traditional)
+    int width { 5 };                                            // direct-list-initialization  (preferred)
+    int height = { 6 };                                         // copy-list-initialization    (rarely used)
+    int e {};                                                   // value-initialization.       (also preferred)
+
+    // More complex initialization:
+    // [TODO]
+
+    // maybe_unused attribute                                   // C++17
+    [[maybe_unused]] int someVar {40};                          // This tell the compiler not to care if the variable does not used.
+
+
+    // Primitive Variables Types.                                                                      |_Size_____|_Range_________________
     char      ltr = 'A';                                        // For store a single letter or number.| 1 byte   | ±128
     short     mrk = 12;                                         // For store a short integer.          | 2 bytes  | ±32768
     int       age = 1;                                          // For store integers.                 | 4 bytes  | ±2147483647
     long long tim = 1001;                                       // For store large integers            | 8 bytes  | ±9223372036854775808
-    float     pi = 3.14f;                                       // For store single precision floats.  | 4 bytes  | 7  dec
-    double    num = 1.5;                                        // For store double precision floats.  | 8 bytes  | 15 dec
+    float     pi = 3.14f;                                       // For store single precision floats.  | 4 bytes  | 7  dec-plc
+    double    num = 1.5;                                        // For store double precision floats.  | 8 bytes  | 15 dec-plc
     bool      stt = true;                                       // For store a boolean value.          | 1 byte   | 1, 0
 
     // Increment/decrement the variables.
-    age++;                                                      // Increment age.
-    age--;                                                      // Decrement age.
+    ++age;                                                      // Increment age.
+    --age;                                                      // Decrement age.
 
     int year1 = age++;                                          // year will not be assigned to an incremented value
     int year2 = ++age;                                          // year will be assigned to an incremented value.
@@ -127,9 +171,7 @@ void Variables(void)
     // const                                                     // Just for user safety. Read only value.
     const int constant = 23;                                     // Will raise error if the value changed.
 
-
-
-    // Litrals 
+    // Literals 
     1.0;                // double 
     4e2;                // double
     3.141'592;          // double, single quotes ignored (C++14)
@@ -144,33 +186,36 @@ void Variables(void)
 // `cout` is an instance from ostream class.
 // `cin` is an instance from istream class.
 
-#include <string> // for getline() 
 
 void standardIO()
 {
     int var1 = 0;
     int var2 = 0;
-    std::string name; 
+    std::string name;
 
+    
     // cout
     std::cout << "this is great day!\n";                        // Printing string to the terminal. 
-    std::cout << var1 << std::endl;                             // We can use std::endl  instead of '\n'
-
-
+    std::cout << var1 << std::endl;                             // We can use std::endl  instead of '\n' to flush the output beffer.
+    
+    
     // cin
     std::cin >> var1;                                           // Puts the input into `var`.
     std::cin.clear();                                           // Is recomended the clear the standard input c stream. (ostream) 
     std::cin.ignore(100, '\n');                                 // We ignor any additional unwanted characters (100 char) to '\n'
-
+    
     // We can use cin with multible variables
     std::cin >> var1 >> var2;                                   // User can enter values seperated with any white spaces {' ', '\n', '\t'}
-
+    
     if (std::cin >> var1) {}                                    // If there are any errors it will return false.
-
+    
     // We can use getLine() to allow the user to input a space ' '
     std::getline(std::cin, name);                               // this function from string module.
     //                                                          // We can use more than one variable for each line. getline(cin,...)
-
+    
+    // Some useful predefined variables.
+    // std::endl                                                // Write a newline and flush the stream.
+    // std::flush                                               // Flush the stream.
 
 }
 
@@ -185,8 +230,8 @@ void CStyledArrays()
     int var;
 
     int nums[6] = { 1, 2, 3, 4, 5, 6 };                           // Array of integers.
-    int NUMs[6]{ 1, 2, 3, 4, 5, 6 };                              // other syntax.             | Valid only in C++
-    int numb[]{ 1, 2, 3, 4, 5, 6 };                               // Compiler determines size. | Valid only in C++
+    int NUMs[6] { 1, 2, 3, 4, 5, 6 };                             // other syntax.             | Valid only in C++
+    int numb[] { 1, 2, 3, 4, 5, 6 };                              // Compiler determines size. | Valid only in C++
 
     // Two dimensional array.
     int location[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
@@ -332,7 +377,6 @@ void String()
 
     std::string Value = std::to_string(0.2);                    // parsing double to string.
     double val = std::stod(Value);                              // parsing string to double.
-
 }
 
 
@@ -365,7 +409,7 @@ void bitWiseOperators()
 }
 
 // Functions---------------------------------------------------------
-// Functions prevent us from rebeating.
+// Functions prevent us from repeating.
 // We have to specify the return type first.
 int Multiply(int a, int b)
 {                                    // Simple function.
@@ -385,7 +429,6 @@ int Multiply(int a, int b);                                     // Over load.
 
 void ifStatement()
 {
-
     bool condition = true;                                      // true is an integer (usually 1) false is just a zer0.
     // Normal If statement.
     if (condition) {                                            // We can get rid 0f the curly barkcets (if our code in one line) and Will work just fine.
@@ -455,12 +498,18 @@ void Switch()
 void loops()
 {
     bool condition = false;
+    std::array<int, 5> iterator {1,2,3,4,5};
 
     // for loop 
-    for (int i = 0; i < 5; i++)                          // For rebeating 5 times.
+    for (int i = 0; i < 5; i++)                          // For repeating 5 times.
     {
         // Do Some thing.
     }
+
+    for (auto iter : iterator) {}                                           // For loop in an iterator like vectors, strings,array, ...
+    for (auto iter = iterator.begin(); iter != iterator.end(); ++iter) {}   // This what is happaning BTS.
+    for (auto iter = iterator.rbegin(); iter != iterator.rend(); ++iter) {} // This looping backword.
+
 
     // While loop
     while (condition)
@@ -475,6 +524,16 @@ void loops()
     } while (condition);
 }
 
+
+// Iterators---------------------------------------------------------
+// Itrators are represnted by array, vectors, strings, ...
+// Thay have some common methods.
+// Thay have some common functions making interacting with them easier.
+
+void iterators()
+{
+    
+}
 
 // Pointers----------------------------------------------------------
 // A pointer is an 'integer' variable stores a block ( addresses ) of memory.
@@ -536,7 +595,7 @@ void References()
 }
 
 
-// Error Exeptions---------------------------------------------------
+// Error Exceptions---------------------------------------------------
 // In C++ We use try and catch keyword.
 
 void ErrorHandling()
@@ -548,7 +607,7 @@ void ErrorHandling()
     }
     catch(std::runtime_error& e)
     {
-        std::cout << "Some Error!" dsdl << std::endl;
+        std::cout << "Some Error!" << std::endl;
     }
 }
 
@@ -576,12 +635,12 @@ void FileHandling()
     file.close();                                               // Close the file
 }
 
-// Anonomus Scope----------------------------------------------------
+// anonymous Scope----------------------------------------------------
 // Just works inside the functions.
 // Used to sparate variables and functions scope. 
 // this method used in librarys. 
 
-void AnonomusScope()
+void AnonymousScope()
 {
     int var;
     // Scope 'A'
@@ -633,11 +692,11 @@ void ConstantExpresions()
     constexpr int number = 3*3;                                     // This is better than const variables bacause it garateed to be substituted at compile time. 
 }
 
-// User-defined Litrals----------------------------------------------
+// User-defined literals----------------------------------------------
 // Used in units conversions, class instantiations and more.
-// We have some types are valid for this custom litrals.
+// We have some types are valid for this custom literals.
 //________________________
-//| unsigned long long   |      >> Not all types are supported for User-defined litrals. 
+//| unsigned long long   |      >> Not all types are supported for User-defined literals. 
 //| long double          |
 //| const char*, size_t  |      >> The second parameter is for the size of the chars.
 // We can return any valid C++ type. 
@@ -645,7 +704,7 @@ void ConstantExpresions()
 // This litral converts meters to centimetrs.
 double operator"" _cm(long double cm) { return cm / 100.0; }         // We should mark this function as constexpr.
 
-void UserDefinedLitrals()
+void UserDefinedLiterals()
 {
     double inMeters = 1.0_cm;   // there are many uses for this advantage.
 }
@@ -725,7 +784,7 @@ public:                                                    // public vaibles and
     float windSpeed = 3;
 
 protected:
-    char protectedVar;                                     // Accessed from dereved class (Chiled)
+    char protectedVar;                                     // Accessed from derived class (Chiled)
 
 private:
     int m_secureNumber;                                    // The convention is to prefix any private variable 'm_' refaring to member variable
@@ -845,9 +904,9 @@ int main() {
     RawPointers();
     References();
     FileHandling();
-    AnonomusScope();
+    AnonymousScope();
     ConstantExpresions();
-    UserDefinedLitrals();
+    UserDefinedLiterals();
     Enums();
     structs();
     Classes();
