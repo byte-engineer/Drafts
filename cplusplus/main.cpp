@@ -6,9 +6,26 @@
 /* Running the script--------------------------------------
  * - Download the compiler (g++ / clang++).
  * - There are many compilers but we will use (g++) or (clang).
- * - Create a file with `.cpp`, `.cc`, `.c++` or `.cxx`.
+ * - Create a file with `.cpp`, `.cc`, `.c++` or `.cxx`. There is more!
  * - Write in terminal `g++ file_name.cpp`.
  */
+
+//- Cpp Source.
+// .ii
+// .cc
+// .cp
+// .CPP
+// .C
+
+//- Cpp Headers.
+// .hh
+// .H
+// .hp
+// .hxx
+// .hpp
+// .HPP
+// .h++
+// .tcc
 
 // Compiler -----------------------------------------------
 // We have 3 main C/C++ compilers { gcc, MSVC, clang }
@@ -914,3 +931,4 @@ int main() {
     OperatorOverloading();
     Constructors();
 }
+

@@ -10,15 +10,9 @@
 // chromium <file>
 
 // Output functions.
-<<<<<<< HEAD
 document.write("<h1>nice site</h1>");            // This is `@deprecated` use document.createElement();nstead.
 window.alert("Some Alert massage!");             // This will stop code exicution.
 console.log("Some tesxt");                       // Prints text into browser console.  HTML allowed.
-=======
-document.write("<h1>nice site</h1>")             // This is `@deprecated` use document.createElement() instead.
-window.alert("Some Alert massage!")              // This will stop code exicution.
-console.log("Some tesxt")                        // Prints text into browser console.  HTML allowed.
->>>>>>> a9e56b3ab5cd923426577cc2db46004ba53eab3b
 
 // We have some objects are in global scope.
 window;                                          // Deals with whole window events. 
@@ -36,18 +30,11 @@ console.log("Hello, %cWorld.", "color: red;");   // Use directives `%c` to style
 console.error("Error Massage!");                 // Error log.
 console.warn("Warning Massage!");                // Warning log.
 console.table(['A', 'B', 'C']);                  // Log an array as a table.
-<<<<<<< HEAD
 
 console.time();                                  // starts timer.
 console.timeEnd();                               // Ends the timer and prints elapsed time.
 
 console.assert(true, "message");                 // only logs if condition is false. This stops code execution.
-=======
-
-console.time();                                  // starts timer.
-console.timeEnd();                               // Ends the timer and prints elapsed time.
-
-console.assert(condition, "message");            // only logs if condition is false. This stops code execution.
 
 // String -------------------------------------------------
 // Use `+` operator to concatenate a string. 
@@ -63,9 +50,18 @@ let seprator = ", "
 `Hello${seprator}World!`;
 
 // Variables ----------------------------------------------
+// There is multible ways to declare a variable on JavaScript.
+// The older way is using `var`.
+// Poeple now use `let` to declare a variable.
+// `var` keyword creates the variable as an attribute on `window` object.
+// `let` keyword just create the variable on it's scope.
+// There is other way to decalre constant variable. :)
+// Use `const` keyword.
 
+var MyVariable = "Some Value";
+let SomeVariable = 123;
+const PI = 3.14;
 
->>>>>>> a9e56b3ab5cd923426577cc2db46004ba53eab3b
 
 // Data Types ---------------------------------------------
 // We use `typeof` to know the type of date.
@@ -104,4 +100,157 @@ const admn = "admin";                            // Contant.
 
 
 // Arithmetic Operators -----------------------------------
+// JavaScript implement all of ordenary math operators.
+
+let store = 16;
+
+1 + 1;                                           // Addition.
+1 - 1;                                           // Subtraction.
+1 * 1;                                           // Multiblication.
+1 / 1;                                           // Division.
+1 **1;                                           // Power.
+
+// Assignment operators.
+store += 1;
+store -= 1;
+store *= 1;
+store /= 1;
+store **=1;
+
+// Unary `+` operator.
+// This operator convert strings (or other types) to number.
++"100";                                          // number => 100
++"-10";                                          // number => -10
++"ABC";                                          // number => NaN
+
+// We can use negation too.
+-"100"                                           // number => -100
+// ...
+
+// Type Casting ------------------------------------------
+// Operation of converting data types from type to another.
+// Since JavaScript is a dynamically typed language, types are determined at runtime.
+
+
+// Casting to string.
+String(128);                                     // string => "128"
+(128).toString();                                // string => "128"
+
+// Casting srting to a number.
+Number("901");                                   // number => 901    // Using the number constructor
+parseInt("696");                                 // number => 696
+parseFloat("123.45");                            // number => 123.45
+
+// Casting to boolean. 
+Boolean(0);                                      // boolean => false
+Boolean("hello");                                // boolean => true
+
+
+
+// Type Coercion ------------------------------------------
+// It's an opration of converting data types on run types (Implicit Type Casting).
+// We can use `===` to get rid of coercion.
+
+// (number => string)
+5 + "5";                                         // string => "55"
+
+// (string => number)
+"10" * 2;                                        // number => 20
+"5" - 1;                                         // number => 4
+
 // 
+if ("") {console.log("yes");}                    // Won’t run, "" → false
+if ("hello") {console.log("yes");}               // Runs, "hello" → true
+
+
+// `===` operator.
+"5" == 5;                                        // true, `==` allows coercion.
+"5" === 5;                                       // false, prevent coercion
+
+
+
+// Number -------------------------------------------------
+// In JavaScript, all numbers are stored as 64-bit floating point values.
+// Because of the floating point system, only integers in the range -(2^53 - 1) to (2^53 - 1)
+
+1_00_00_00;                                      // We can add `_` to numbers. thay get ignored.
+1e6;                                             // This valid number. This is (1 000 000)
+
+ 1 / 0;                                          // infinity.
+-1 / 0;                                          // -infinity.
+ 0 / 0; Math.sqrt(-1);                           // NaN, invalid math.
+
+// Not safe integer.                             // Not safe integer because JavaScript uses float64 here.
+9007199254740991 + 2;                            // 9007199254740992  Wrong result.
+
+let big = 123439840842934892307806n;             // Add "n" at the end.  | type: bigint
+big + 10n + BigInt(50);                          // Convert to mix bigInt with normal numbers.
+
+// Number methods.
+Number.isInteger(123);                           // true.
+Number.isFinite(12313);                          // true.
+Number.isNaN(125);
+// ...
+
+(10.555).toFixed(2);                             // 10.55, Fix the decemals.
+(10.525).toExponential()                         // Return a string of the number in `E` notation.
+
+
+// Math Object --------------------------------------------
+// Math class or object is like a library has some common math operations.
+
+let x = 1.5;
+
+Math.E;Math.PI;                                  // It contains some conatants.
+
+Math.sin(x); Math.cos(x); Math.tan(x);           // Some trignometry functions.
+
+Math.ceil(x); Math.floor(x); Math.trunc(x);      // Ceil and floor functions.
+
+Math.random();                                   // Returns a random number between 1 and 0.
+
+
+// String Methods -----------------------------------------
+// String litrals in JavaScript behave like String class.
+// Strings are immutable. Every “modification” actually makes a new string under the hood.
+
+
+"Hi juys!".length;                                // Result: 8 | This is a property not a method.
+
+
+// Indexing & Slicing - - - - - - 
+// If out of bounds: 
+// - []     -> undefined
+// - charAt -> ""
+"012345"[2];                                      // Result: 2.
+"012345".charAt();                                // Same result.
+
+// at()                                           // Can handle negtives.
+"jane is my son".at(-1);                          // Result: 'n' | last character.
+
+// slice()                                        // Can handle negetives as well.
+"Some rice here".slice(1, 8);                     // Result: 'ome ric' | .slice(start, end)
+"elephent".slice(-5, -1);                         // Result: 'phen'
+"The End".slice(4);                               // Result: 'End'
+
+// .substring(start, end)                         // Does not handle negetives.
+"Some rice here".substring(1, 8);
+
+// .substr(start, length)                         // Deprecated. No longer supported.
+"SOS".substr(1, 2);                               // Result: 'OS'
+
+
+// Other methods - - - - - - - - -
+
+let myString = "You JavaScript";
+
+myString.includes("you");                        // Result: true.
+
+myString.startsWith("Java");                     // Result: true.
+myString.endsWith("Script");                     // Result: true.
+
+myString.toUpperCase().toLowerCase();            // Convert string to upper or lower case.
+
+"banana".indexOf("a");                           // Result: 1 | finds the index of first 'a'.
+"banana".lastIndexOf("a");                       // Result: 5 | 
+
