@@ -214,30 +214,31 @@ Math.random();                                   // Returns a random number betw
 // String litrals in JavaScript behave like String class.
 // Strings are immutable. Every “modification” actually makes a new string under the hood.
 
+let poem = "Not really, No monoy for that";
 
-"Hi juys!".length;                                // Result: 8 | This is a property not a method.
+poem.length;                                     // Result: 29 | This is a property not a method.
 
 
 // Indexing & Slicing - - - - - - 
 // If out of bounds: 
 // - []     -> undefined
 // - charAt -> ""
-"012345"[2];                                      // Result: 2.
-"012345".charAt();                                // Same result.
+poem[2];                                         // Result: 't'.
+poem.charAt();                                   // Same result.
 
-// at()                                           // Can handle negtives.
-"jane is my son".at(-1);                          // Result: 'n' | last character.
+// at()                                          // Can handle negtives.
+poem.at(-1);                                     // Result: 't' | last character.
 
-// slice()                                        // Can handle negetives as well.
-"Some rice here".slice(1, 8);                     // Result: 'ome ric' | .slice(start, end)
-"elephent".slice(-5, -1);                         // Result: 'phen'
-"The End".slice(4);                               // Result: 'End'
+// slice()                                       // Can handle negetives as well.
+poem.slice(1, 8);                                // Result: 'ot real' | .slice(start, end)
+poem.slice(-5, -1);                              // Result: ' tha'
+poem.slice(4);                                   // Result: 'really, No monoy for that'
 
-// .substring(start, end)                         // Does not handle negetives.
-"Some rice here".substring(1, 8);
+// .substring(start, end)                        // Does not handle negetives.
+poem.substring(1, 8);
 
-// .substr(start, length)                         // Deprecated. No longer supported.
-"SOS".substr(1, 2);                               // Result: 'OS'
+// .substr(start, length)                        // Deprecated. No longer supported.
+poem.substr(1, 2);                               // Result: 'ot'
 
 
 // Other methods - - - - - - - - -
@@ -246,6 +247,8 @@ let myString = "You JavaScript";
 
 myString.includes("you");                        // Result: true.
 
+"R ".repeat(2);                                  // Result: s"R R "
+
 myString.startsWith("Java");                     // Result: true.
 myString.endsWith("Script");                     // Result: true.
 
@@ -253,4 +256,26 @@ myString.toUpperCase().toLowerCase();            // Convert string to upper or l
 
 "banana".indexOf("a");                           // Result: 1 | finds the index of first 'a'.
 "banana".lastIndexOf("a");                       // Result: 5 | 
+
+// Split at some chararter.
+"a,b,c".split(",");                              // ["a", "b", "c"]
+"  good  ".trim();
+
+
+// Comparison operators -----------------------------------
+
+x =   "fine";                              // Assinment operator.    | no return.
+x ==  "fine";                              // Comparison operator.   | only checks value.
+x === "fine";                              // Comparison operator.   | ckecks type and value.
+
+// Ordinary comparison operators.          // This operators returns boolean value.
+1 <  1;
+1 >  1;
+1 <= 1;
+1 >= 1;
+
+// Logical Operators.
+!false;                                   // true. | Not operator.
+true && true;                             // true. | And operator.
+true || false;                            // true. | or operator.
 
