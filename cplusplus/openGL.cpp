@@ -34,7 +34,7 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, true);
 #endif
 
-    
+
     // Calling this function return a window pointer.
     // If window creation fails, NULL will be returned. so we need to check the pointer. and call glfwTerminate();
     GLFWwindow* window =glfwCreateWindow(800, 600, "Window Title", nullptr, nullptr);

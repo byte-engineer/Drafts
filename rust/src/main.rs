@@ -35,16 +35,25 @@ mod process;
 // Cargo Commends.........................................
 // Useful link for cargo book https://doc.rust-lang.org/cargo/index.html.
 
-// cargo new <projectName>                  //. Create the project files.
-// crago --version                          //. Get cargo version.
-// cargo build                              //. Build the project.
-// cargo run                                //. build and run the project.
+// cargo new <projectName>                  // Create the project files.
+// crago --version                          // Get cargo version.
+// cargo build                              // Build the project.
+// cargo build --release                    // Release build.
+// cargo run                                // build and run the project.
 
 
 // Rustup Commends.........................................
-// rustup toolchain list                    // List the available rust releases.
-// rustup show                              //. show us the versions of the toolchain (rust tools).
+// rustup self uninstall                    // Remove the whole rust language.
+// rustup toolchain list                    // List the available (installed) rust toolchains.
+// rustup toolchain install <toolchain>     // Install a toolchain
+// rustup override set <toolchain>          // Sets a toolchain for just specfic project.  
+// rustup default <toolchain>               // Make a toolchain default globaly.
+// rustup show                              // Shows toolchain info.
+// rustup set default-host                  // change the default toolchain.
 
+// On windows there are two main ABIs:
+// - native (MSVC) ABI     | stable-x86_64-pc-windows-msvc
+// - GNU ABI               | stable-i686-pc-windows-gnu
 
 // Main function...........................................
 // - the code starts from here.

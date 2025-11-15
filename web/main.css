@@ -17,6 +17,7 @@
    element                ==>  selects by element type.                      | div
    .class                 ==>  selects elements by class.                    | .class-name
    #id                    ==>  selects the element by id.                    | #id-name
+   selector.class         ==> selector has class on it self.                 | button.class-name
    selector selector      ==>  selects classes that inside the parent.       | .card div
    selector > selector    ==>  selects direct child.                         | div > p
    selector + selector    ==>  selects any pragraph after div next element.  | div + p
@@ -153,7 +154,7 @@
 
 
 /* -------- Boxs -----------------------
-   box-sizing: content-box | border-box;                   (caculate the positioning poroberties from the borders of the element or the whole the box model)
+   box-sizing: content-box | border-box;                   (caculate` the positioning poroberties from the borders of the element or the whole the box model)
    box-shadow: <x> <y> <blur> <spread> <color> <inset>;    (create a shadow for the element)
 */
 
