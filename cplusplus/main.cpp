@@ -250,44 +250,61 @@ void standardIO()
 }
 
 // Functions---------------------------------------------------------
+// Function is a reusable sequence of statements designed to do a particular job.
 // Functions prevent us from repeating our selves.
 // We have to specify the return type first.
 // We have already expossed to the main() function.
 
+
 void functions();
 
-int multiply(int a, int b) // This called function header.
-{
-    // function body
-    return a * b;
-}
+int multiply(int a, int b) {                          // Function header.
+    return a * b;                                     // Function body.
+}                                                     // It returns int.
 
 // Calling the function.
-int result = multiply(3, 55); // We store the result in a variable.
+int result = multiply(3, 55);                         // We store the result in a variable.
 
-// warning: unreferenced parameter count
-void doSomething(int count) {}
+void doSomething(int count) {}                        // warning: unreferenced parameter count
+void doSomeWork(int) {}                               // ok: unnamed parameter will not generate warning
+void doSomeFunc(int /*count*/) {}                     // Google style.
 
-// ok: unnamed parameter will not generate warning
-void doSomeWork(int) {}
-
-// Google style.
-void doSomeFunc(int /*count*/) {}
 
 // Function variables are called local variables.
 // Local variables are destroyed in the opposite order of creation at the end of the set of curly braces.
 // x, y and z are a local variables.
-int add(int x, int y)
-{
+// x, y and z are defined in this function and we can not use them in another functions. 
+int add(int x, int y) {
     int z{x + y};
-
     return z;
-} // z, y, and x destroyed here
+}                                                     // z, y, and x destroyed here
+
+// Functions only returns one value each time it called.  This limitation has some work arounds. 
+// value-returning function that does not return a value will produce undefined behavior
+
+
+// Returning a value from non-returning function cause a compile error.
+// For the functions that has no return value. no need to the keyword `return`.
+// But we can use empty like So.
+void So() {  return; }
 
 // We can Write the header of the function just to prevent compilation errors.
 // this called forward declaration.
 int multiply(int a, int b);
-int multiply(int, int); // this valid too.
+int multiply(int, int);                               // this valid too.
+
+
+// main() function cannot be called explecitly in C++ standards.
+// C does allow main() to be called explicitly, so some C++ compilers will allow this for compatibility reasons.
+// I have seen a C code that calls main function explcitly! 🤯
+// If the main function returns a value other than 0 So There is some thing wrong. This Just a convesion.
+
+// The main function does Not always the first function executing.
+// If We can execute code on the functions that initlize global variables.
+// like so.   In this case the multiplay function runs before main() because it initlize global variable.
+int hackIt = multiply(1, 2);
+
+
 
 // NameSpaces--------------------------------------------------------
 // Namespace is used to prevent naming colisions.
@@ -298,7 +315,7 @@ int multiply(int, int); // this valid too.
 
 namespace fruits
 {
-    char apple[]{"apple"};
+    char apple []{"apple"};
     char oringe[]{"oringe"};
     char banana[]{"banana"};
 }
@@ -744,15 +761,15 @@ void AnonymousScope()
 // This style is exist in many programming languages.
 // All overloaded functions must have same return type.
 
-int f(void) { return 0; }             // Function with no parameters
-int f(int x) { return x; }            // Overloaded function with one int parameter
-int f(int x, int y) { return x + y; } // Overloaded function with one two parameter.
+int f(void) { return 0; }                        // Function with no parameters
+int f(int x) { return x; }                       // Overloaded function with one int parameter
+int f(int x, int y) { return x + y; }            // Overloaded function with one two parameter.
 
 void OverLoading()
 {
-    f();     // We calling First "f" function.
-    f(2);    // We calling Second "f" function.
-    f(2, 3); // We calling Third "f" function.
+    f();                                         // We calling First "f" function.
+    f(2);                                        // We calling Second "f" function.
+    f(2, 3);                                     // We calling Third "f" function.
 }
 
 // Constant Exeprisions----------------------------------------------
@@ -884,22 +901,22 @@ void Classes()
 
 class Cat
 {
-public:                                          // Cinstructors should be public other wise we can not construct an instenses form the class.
-    Cat() {}                                     // this is the defalute constructor.
-    Cat(std::string name)                        // this constructor used if we provide one string argument.
+public:                                               // Cinstructors should be public other wise we can not construct an instenses form the class.
+    Cat() {}                                          // This is the defalute constructor.
+    Cat(std::string name)                             // This constructor used if we provide one string argument.
     {
         m_name = name;
     }
 
-    Cat(std::string name, int age)               // I believe this systax is more eficiant.
-        : m_name(name), m_age(age)
+    Cat(std::string name, int age)                    // I believe this systax is more eficiant.
+        : m_name(name), m_age(age)                    // This syntaxis commonly used to initlize variables.
     {
-    } // This syntaxis commonly used to initlize variables
+    }
 
     Cat(std::string name, int age, std::string color) // Constructor for three arguments.
         : Cat(name, age)                              // We can re-use previose constructor.
     {
-        m_color = color; // We have to assign additional explicitly.
+        m_color = color;                              // We have to assign additional explicitly.
     }
 
 private:

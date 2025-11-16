@@ -101,7 +101,6 @@ int main() {
 }
 
 
-
 // This callback called when OpenGL viewport resized. 
 void frameBufferSizeCallback(GLFWwindow* window,int width, int height) {
     glViewport(0, 0, width, height);             // openGL viewport correction.
